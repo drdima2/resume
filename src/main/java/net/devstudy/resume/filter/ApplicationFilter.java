@@ -1,6 +1,5 @@
 package net.devstudy.resume.filter;
 
-import net.devstudy.resume.controller.SearchController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
