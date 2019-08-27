@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ tag pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 
 <div class="panel panel-primary">
@@ -8,6 +9,11 @@
 		</h3>
 	</div>
 	<div class="panel-body">
-		<strong>English:</strong> Intermediate<br>
+		<c:forEach var="language" items="${profile.languages}">
+			<%--<strong>English:</strong> Intermediate<br>--%>
+			<strong>${language.name}</strong> ${language.level}<br>
+		</c:forEach>
+
+
 	</div>
 </div>
