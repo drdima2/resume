@@ -2,9 +2,7 @@ package net.devstudy.resume.controller;
 
 import net.devstudy.resume.entity.Profile;
 import net.devstudy.resume.repository.storage.ProfileRepository;
-import net.devstudy.resume.service.NameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class PublicDataController {
 
-    @Autowired
-    private NameService nameService;
+
 
     @Autowired
     private ProfileRepository profileRepository;

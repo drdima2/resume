@@ -6,6 +6,7 @@ package net.devstudy.resume.entity;
 
 
 
+import net.devstudy.resume.annotation.constraints.Adulthood;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
@@ -91,7 +92,7 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 
 
 
-    
+
     @OneToMany(mappedBy = "profile", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<Certificate> certificates;
 
@@ -118,7 +119,7 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 
 
 
-    /*
+
     @OneToMany(mappedBy = "profile", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @OrderBy("finishDate DESC")
     private List<Practic> practics;
@@ -133,7 +134,7 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
     @OneToMany(mappedBy = "profile", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @OrderBy("finishDate DESC")
     private List<Course> courses;
-    */
+
 
     @Embedded
     private Contacts contacts;
@@ -298,7 +299,53 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
         this.created = created;
     }
 
+    public List<Certificate> getCertificates() {
+        return certificates;
+    }
 
+    public void setCertificates(List<Certificate> certificates) {
+        this.certificates = certificates;
+    }
+
+    public List<Education> getEducations() {
+        return educations;
+    }
+
+    public void setEducations(List<Education> educations) {
+        this.educations = educations;
+    }
+
+    public List<Hobby> getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(List<Hobby> hobbies) {
+        this.hobbies = hobbies;
+    }
+
+    public List<Practic> getPractics() {
+        return practics;
+    }
+
+    public void setPractics(List<Practic> practics) {
+        this.practics = practics;
+    }
+
+    public List<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
 
     public List<Language> getLanguages() {
         System.out.println("getLanguages");

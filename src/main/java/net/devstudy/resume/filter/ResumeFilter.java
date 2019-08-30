@@ -23,6 +23,8 @@ public class ResumeFilter extends AbstractFilter {
         req.setAttribute("REQUEST_URL",requestUrl);
         try {
             chain.doFilter(req,resp);
+
+
             //if (requestUrl.equals("/hello")) handleException(new Throwable(),requestUrl,resp);
         }catch (Throwable th){
             LOGGER.error("Process request failed: " + requestUrl,th);

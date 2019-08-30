@@ -1,6 +1,9 @@
 package net.devstudy.resume.entity;
 
+import net.devstudy.resume.annotation.constraints.EnglishLanguage;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -18,9 +21,13 @@ public class Skill extends AbstractEntity<Long> implements Serializable, Profile
 
 
     @Column (nullable = false, length = 50)
-    private String categoy;
+    @EnglishLanguage
+    @Size(min=1)
+    private String category;
 
     @Column(nullable = false, length = 2147483647)
+    @EnglishLanguage
+    @Size(min=1)
     private String value;
 
 
@@ -41,18 +48,18 @@ public class Skill extends AbstractEntity<Long> implements Serializable, Profile
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "categoy")
-    public String getCategoy() {
-        return categoy;
+//    @Basic
+//    @Column(name = "category")
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategoy(String categoy) {
-        this.categoy = categoy;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    @Basic
-    @Column(name = "value")
+//    @Basic
+//    @Column(name = "value")
     public String getValue() {
         return value;
     }
@@ -69,7 +76,7 @@ public class Skill extends AbstractEntity<Long> implements Serializable, Profile
         Skill skill = (Skill) o;
 
         if (id != null ? !id.equals(skill.id) : skill.id != null) return false;
-        if (categoy != null ? !categoy.equals(skill.categoy) : skill.categoy != null) return false;
+        if (category != null ? !category.equals(skill.category) : skill.category != null) return false;
         if (value != null ? !value.equals(skill.value) : skill.value != null) return false;
 
         return true;
@@ -78,7 +85,7 @@ public class Skill extends AbstractEntity<Long> implements Serializable, Profile
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (categoy != null ? categoy.hashCode() : 0);
+        result = 31 * result + (category != null ? category.hashCode() : 0);
         result = 31 * result + (value != null ? value.hashCode() : 0);
         return result;
     }
