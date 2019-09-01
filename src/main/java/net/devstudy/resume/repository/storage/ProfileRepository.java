@@ -17,10 +17,13 @@ public interface ProfileRepository extends PagingAndSortingRepository<Profile,Lo
     // List<Profile> findAll(Sort sort);
 
     Profile findByUid(String uid);
+    //Profile findByUid(long uid);
     Profile findByEmail(String email);
     Profile findByPhone(String phone);
     int countByUid(String uid);
     Page<Profile> findAllByCompletedTrue(Pageable pageable);
     List<Profile> findByCompletedFalseAndCreatedBefore(Timestamp oldDate);
+
+    Profile findById(Long id);
 
 }

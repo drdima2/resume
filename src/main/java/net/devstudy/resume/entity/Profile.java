@@ -50,6 +50,9 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
     private String lastName;
 
 
+
+
+
     @Column(length = 2147483647)
     private String objective;
 
@@ -138,6 +141,16 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 
     @Embedded
     private Contacts contacts;
+
+
+
+    public String getFullName(){
+        return getFirstName() + " " + getLastName();
+    }
+
+    public String getAge(){
+        return String.valueOf(23);
+    }
 
 
     public Profile(){
@@ -305,6 +318,7 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 
     public void setCertificates(List<Certificate> certificates) {
         this.certificates = certificates;
+        updateListSetProfile(this.certificates);
     }
 
     public List<Education> getEducations() {
@@ -313,6 +327,7 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 
     public void setEducations(List<Education> educations) {
         this.educations = educations;
+        updateListSetProfile(this.educations);
     }
 
     public List<Hobby> getHobbies() {
@@ -321,6 +336,7 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 
     public void setHobbies(List<Hobby> hobbies) {
         this.hobbies = hobbies;
+        updateListSetProfile(this.hobbies);
     }
 
     public List<Practic> getPractics() {
@@ -329,6 +345,7 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 
     public void setPractics(List<Practic> practics) {
         this.practics = practics;
+        updateListSetProfile(this.practics);
     }
 
     public List<Skill> getSkills() {
@@ -337,6 +354,15 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 
     public void setSkills(List<Skill> skills) {
         this.skills = skills;
+        updateListSetProfile(this.skills);
+    }
+
+    private void updateListSetProfile(List<? extends ProfileEntity> list) {
+        if (list!=null){
+            for (ProfileEntity entity:list){
+                entity.setProfile(this);
+            }
+        }
     }
 
     public List<Course> getCourses() {
@@ -345,6 +371,7 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 
     public void setCourses(List<Course> courses) {
         this.courses = courses;
+        updateListSetProfile(this.courses);
     }
 
     public List<Language> getLanguages() {
@@ -354,6 +381,7 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 
     public void setLanguages(List<Language> languages) {
         this.languages = languages;
+        updateListSetProfile(this.languages);
     }
 
 
